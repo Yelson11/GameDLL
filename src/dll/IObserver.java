@@ -7,10 +7,9 @@ package dll;
 
 /**
  *
- * @author Yelson
+ * @author Administrator
  */
-public class Skill {
+public interface IObserver {
     
-    private String image;
-    
+    public void notifyObserver();   
 }

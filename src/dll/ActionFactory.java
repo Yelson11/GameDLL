@@ -5,10 +5,16 @@
  */
 package dll;
 
+import java.util.HashMap;
+
 /**
  *
- * @author Yelson
+ * @author Administrator
  */
-public class Character {
+public class ActionFactory {
+    
+    private HashMap<String, IStrategy> actionList;
+    
+    
     
 }

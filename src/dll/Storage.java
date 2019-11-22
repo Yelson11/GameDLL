@@ -5,12 +5,14 @@
  */
 package dll;
 
+import java.util.ArrayList;
+
 /**
  *
- * @author Yelson
+ * @author Administrator
  */
-public class Skill {
+public class Storage {
     
-    private String image;
+    private ArrayList<AbstractItem> itemList;
     
 }

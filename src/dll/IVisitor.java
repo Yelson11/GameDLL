@@ -5,12 +5,14 @@
  */
 package dll;
 
+import java.util.List;
+
 /**
  *
- * @author Yelson
+ * @author Administrator
  */
-public class Skill {
+public interface IVisitor {
     
-    private String image;
-    
+    public void visit(ICharacter pICharacter);
+    public void visit( List<ICharacter> elementList );
 }

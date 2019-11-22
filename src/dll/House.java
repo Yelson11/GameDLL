@@ -5,10 +5,14 @@
  */
 package dll;
 
+import java.util.HashMap;
 /**
  *
  * @author Yelson
  */
 public class House {
+    
+    private HashMap<String, Room> roomList;
+    private Storage storage;
     
 }

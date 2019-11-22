@@ -11,4 +11,7 @@ package dll;
  */
 public class Room {
     
+    private String name;
+    private String image;
+    
 }

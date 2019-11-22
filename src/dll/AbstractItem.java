@@ -7,10 +7,9 @@ package dll;
 
 /**
  *
- * @author Yelson
+ * @author Administrator
  */
-public class Skill {
+public abstract class AbstractItem {
     
-    private String image;
     
 }
