@@ -11,9 +11,9 @@ package dll;
  */
 public interface IObservable {
     
-    public void addObserver(IObserver observer);       
-    public void removeObserver(IObserver observer);       
-    public void notify(IObserver observer);
-    public void notifyAllObservers();
+    public void addObserver(String attribute, IObserver pIObserver);       
+    public void removeObserver(String attribute, IObserver pIObserver);       
+    //public void notify(IObserver observer);
+    public void notifyAllObservers(String attribute);
     
 }

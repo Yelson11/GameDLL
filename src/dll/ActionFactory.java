@@ -16,5 +16,4 @@ public class ActionFactory {
     private HashMap<String, IStrategy> actionList;
     
     
-    
 }

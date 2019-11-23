@@ -13,6 +13,6 @@ import java.util.List;
  */
 public interface IVisitor {
     
-    public void visit(ICharacter pICharacter);
-    public void visit( List<ICharacter> elementList );
+    public void visit(ConcretCharacter pConcretCharacter);
+    public void visit( List<ICharacter> characterList );
 }

@@ -11,5 +11,5 @@ package dll;
  */
 public interface IObserver {
     
-    public void notifyObserver();   
+    public void notifyObserver(Object source);   
 }

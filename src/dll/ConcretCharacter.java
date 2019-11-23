@@ -13,27 +13,56 @@ import library.*;
  *
  * @author Yelson
  */
-public class ConcretCharacter extends Character implements IObserver {
+public class ConcretCharacter extends Character implements IObservable, ICharacter {
 
     private ArrayList<Skill> skillList;
-    private ArrayList<IObserver> observerList;
+    private HashMap<String, ArrayList<IObserver>> observerHash;
 
     public ConcretCharacter(String pName, ArrayList<String> pImages, HashMap<String, Integer> pAttributeList, ArrayList<Weapon> 
-           pUsedWeapons, Weapon pCurrentWeapon, ArrayList<Skill> pSkillList, ArrayList<IObserver> pIObserverList){
+        pUsedWeapons, Weapon pCurrentWeapon, ArrayList<Skill> pSkillList, HashMap<String, ArrayList<IObserver>> pIObserverHash){
         super(pName, pImages, pAttributeList, pUsedWeapons, pCurrentWeapon);
         this.skillList = pSkillList;
-        this.observerList = pIObserverList;
+        this.observerHash = pIObserverHash;
     }
 
     @Override
-    public void notifyObserver() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void addObserver(String attribute, IObserver pIObserver) {
+        if (this.observerHash.containsKey(attribute)){
+            this.observerHash.get(attribute).add(pIObserver);
+        }
+        else{
+            ArrayList<IObserver> observerList = new ArrayList<>();
+            observerList.add(pIObserver);
+            this.observerHash.put(attribute, observerList);
+        }
+    }
+
+    @Override
+    public void removeObserver(String attribute, IObserver pIObserver) {
+        if (this.observerHash.containsKey(attribute)){
+            this.observerHash.get(attribute).remove(pIObserver);
+        }
+    }
+    
+    @Override
+    public void notifyAllObservers(String attribute) {
+        if (this.observerHash.containsKey(attribute)){
+            observerHash.get(attribute).forEach((observer) -> {               
+                observer.notifyObserver(this);
+            });
+        }
+    }
+    
+    //Aqui debe ir un mensaje para que el usuario acepte la enfermedad 
+    @Override
+    public void accept( IVisitor visitor ){
+        visitor.visit(this);
     }
     
     public static class ConcretCharacterBuilder implements IBuilder<Character>{
          
         private ArrayList<Skill> skillList;
-        private ArrayList<IObserver> observerList;
+        private HashMap<String, ArrayList<IObserver>> observerHash;
         
         private String name;
         private ArrayList<String> images;
@@ -94,8 +123,15 @@ public class ConcretCharacter extends Character implements IObserver {
             return this;
         }
         
-        public ConcretCharacterBuilder addObserver(IObserver pIObserver) {
-            this.observerList.add(pIObserver);
+        public ConcretCharacterBuilder addObserver(String attribute, IObserver pIObserver) {
+            if (this.observerHash.containsKey(attribute)){
+                this.observerHash.get(attribute).add(pIObserver);
+            }
+            else{
+                ArrayList<IObserver> observerList = new ArrayList<>();
+                observerList.add(pIObserver);
+                this.observerHash.put(attribute, observerList);
+            }
             return this;
         }
         
@@ -104,14 +140,14 @@ public class ConcretCharacter extends Character implements IObserver {
             return this;
         }
 
-        public ConcretCharacterBuilder setObserverList(ArrayList<IObserver> pObserverList) {
-            this.observerList = pObserverList;
+        public ConcretCharacterBuilder setObserverHash(HashMap<String, ArrayList<IObserver>> pObserverHash) {
+            this.observerHash = pObserverHash;
             return this;
         }
   
         @Override
         public ConcretCharacter build() {
-            return new ConcretCharacter(name, images, attributeList, usedWeapons, currentWeapon, skillList, observerList);
+            return new ConcretCharacter(name, images, attributeList, usedWeapons, currentWeapon, skillList, observerHash);
         }
          
     }
@@ -124,14 +160,13 @@ public class ConcretCharacter extends Character implements IObserver {
         this.skillList = skillList;
     }
 
-    public ArrayList<IObserver> getObserverList() {
-        return observerList;
+    public HashMap<String, ArrayList<IObserver>> getObserverHash() {
+        return observerHash;
     }
 
-    public void setObserverList(ArrayList<IObserver> observerList) {
-        this.observerList = observerList;
+    public void setObserverHash(HashMap<String, ArrayList<IObserver>> observerHash) {
+        this.observerHash = observerHash;
     }
-    
     
     
 }
