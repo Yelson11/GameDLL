@@ -9,8 +9,6 @@ package dll;
  *
  * @author Administrator
  */
-public interface IStrategy {
-    
-    public void doAction(ICharacter character);
+public interface ICure {
     
 }

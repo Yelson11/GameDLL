@@ -17,13 +17,13 @@ public class Disease implements IVisitor, IObserver{
     
     private HashMap<String, Integer> affectAttributeList;
     private HashMap<String, Integer> needAttributeList;
-    private ArrayList<String> pills;
+    private ArrayList<ICure> cure;
     
     public Disease(HashMap<String, Integer> pAffectAttributeList, 
-            HashMap<String, Integer> pNeedAttributeList, ArrayList<String> pPills){
+            HashMap<String, Integer> pNeedAttributeList, ArrayList<ICure> pCure){
         this.affectAttributeList = pAffectAttributeList;
         this.needAttributeList = pNeedAttributeList;
-        this.pills = pPills;
+        this.cure = pCure;
     }
 
     @Override
@@ -75,12 +75,12 @@ public class Disease implements IVisitor, IObserver{
         this.needAttributeList = needAttributeList;
     }
 
-    public ArrayList<String> getPills() {
-        return pills;
+    public ArrayList<ICure> getPills() {
+        return cure;
     }
 
-    public void setPills(ArrayList<String> pills) {
-        this.pills = pills;
+    public void setPills(ArrayList<ICure> pCure) {
+        this.cure = pCure;
     }
     
 }

@@ -9,6 +9,11 @@ package dll;
  *
  * @author Administrator
  */
-public class Action {
+public class Action implements IStrategy {
+
+    @Override
+    public void doAction(ICharacter character) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }
