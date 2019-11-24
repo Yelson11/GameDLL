@@ -17,6 +17,7 @@ public class ConcretCharacter extends Character implements IObservable, ICharact
 
     private ArrayList<Skill> skillList;
     private HashMap<String, ArrayList<IObserver>> observerHash;
+    private IStrategy strategy;
 
     public ConcretCharacter(String pName, ArrayList<String> pImages, HashMap<String, Integer> pAttributeList, ArrayList<Weapon> 
         pUsedWeapons, Weapon pCurrentWeapon, ArrayList<Skill> pSkillList, HashMap<String, ArrayList<IObserver>> pIObserverHash){
@@ -167,6 +168,13 @@ public class ConcretCharacter extends Character implements IObservable, ICharact
     public void setObserverHash(HashMap<String, ArrayList<IObserver>> observerHash) {
         this.observerHash = observerHash;
     }
-    
+
+    public IStrategy getStrategy() {
+        return strategy;
+    }
+
+    public void setStrategy(IStrategy strategy) {
+        this.strategy = strategy;
+    }
     
 }

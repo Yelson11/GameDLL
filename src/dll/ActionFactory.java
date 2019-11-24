@@ -14,6 +14,17 @@ import java.util.HashMap;
 public class ActionFactory {
     
     private HashMap<String, IStrategy> actionList;
+
+    public ActionFactory(HashMap<String, IStrategy> pActionList){
+        this.actionList = pActionList;
+    }
     
+    public HashMap<String, IStrategy> getActionList() {
+        return actionList;
+    }
+
+    public void setActionList(HashMap<String, IStrategy> actionList) {
+        this.actionList = actionList;
+    }
     
 }

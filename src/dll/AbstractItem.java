@@ -11,5 +11,6 @@ package dll;
  */
 public abstract class AbstractItem {
     
+    private String name;
     
 }

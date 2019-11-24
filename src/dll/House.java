@@ -15,4 +15,25 @@ public class House {
     private HashMap<String, Room> roomList;
     private Storage storage;
     
+    public House(HashMap<String, Room> pRoomList, Storage pStorage){
+        this.roomList = pRoomList;
+        this.storage = pStorage;
+    }
+
+    public HashMap<String, Room> getRoomList() {
+        return roomList;
+    }
+
+    public void setRoomList(HashMap<String, Room> roomList) {
+        this.roomList = roomList;
+    }
+
+    public Storage getStorage() {
+        return storage;
+    }
+
+    public void setStorage(Storage storage) {
+        this.storage = storage;
+    }
+    
 }

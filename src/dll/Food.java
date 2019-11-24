@@ -9,8 +9,6 @@ package dll;
  *
  * @author Administrator
  */
-public interface IStrategy {
-    
-    public void doAction();
+public class Food extends AbstractItem {
     
 }

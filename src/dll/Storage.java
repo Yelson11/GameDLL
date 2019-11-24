@@ -15,4 +15,16 @@ public class Storage {
     
     private ArrayList<AbstractItem> itemList;
     
+    public Storage(ArrayList<AbstractItem> pItemList){
+        this.itemList = pItemList;
+    }
+
+    public ArrayList<AbstractItem> getItemList() {
+        return itemList;
+    }
+
+    public void setItemList(ArrayList<AbstractItem> itemList) {
+        this.itemList = itemList;
+    }
+   
 }
