@@ -5,12 +5,15 @@
  */
 package dll;
 
+import java.util.HashMap;
+
 /**
  *
- * @author Yelson
+ * @author Administrator
  */
-public class Skill {
+public abstract class AbstractItem implements ICure {
     
-    private String image;
+    private String name;
+    private HashMap<Disease, Integer> list;
     
 }

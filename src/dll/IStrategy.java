@@ -7,10 +7,10 @@ package dll;
 
 /**
  *
- * @author Yelson
+ * @author Administrator
  */
-public class Skill {
+public interface IStrategy {
     
-    private String image;
+    public void doAction(ICharacter character);
     
 }
