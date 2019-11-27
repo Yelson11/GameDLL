@@ -14,13 +14,14 @@ import java.util.List;
  * @author Yelson
  */
 public class Disease implements IVisitor, IObserver{
-    
+    private String name;
     private HashMap<String, Integer> affectAttributeList;
     private HashMap<String, Integer> needAttributeList;
     private ArrayList<ICure> cure;
     
-    public Disease(HashMap<String, Integer> pAffectAttributeList, 
+    public Disease(String pName, HashMap<String, Integer> pAffectAttributeList, 
             HashMap<String, Integer> pNeedAttributeList, ArrayList<ICure> pCure){
+        this.name = pName;
         this.affectAttributeList = pAffectAttributeList;
         this.needAttributeList = pNeedAttributeList;
         this.cure = pCure;
