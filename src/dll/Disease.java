@@ -14,13 +14,15 @@ import java.util.List;
  * @author Yelson
  */
 public class Disease implements IVisitor, IObserver{
+    
     private String name;
     private HashMap<String, Integer> affectAttributeList;
     private HashMap<String, Integer> needAttributeList;
-    private ArrayList<ICure> cure;
+    private HashMap<String, String> cure;
+    private int days;
     
     public Disease(String pName, HashMap<String, Integer> pAffectAttributeList, 
-            HashMap<String, Integer> pNeedAttributeList, ArrayList<ICure> pCure){
+            HashMap<String, Integer> pNeedAttributeList, HashMap<String, String> pCure){
         this.name = pName;
         this.affectAttributeList = pAffectAttributeList;
         this.needAttributeList = pNeedAttributeList;
@@ -76,12 +78,36 @@ public class Disease implements IVisitor, IObserver{
         this.needAttributeList = needAttributeList;
     }
 
-    public ArrayList<ICure> getPills() {
+    public HashMap<String, String> getPills() {
         return cure;
     }
 
-    public void setPills(ArrayList<ICure> pCure) {
+    public void setPills(HashMap<String, String> pCure) {
         this.cure = pCure;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public HashMap<String, String> getCure() {
+        return cure;
+    }
+
+    public void setCure(HashMap<String, String> cure) {
+        this.cure = cure;
+    }
+
+    public int getDays() {
+        return days;
+    }
+
+    public void setDays(int days) {
+        this.days = days;
     }
     
 }

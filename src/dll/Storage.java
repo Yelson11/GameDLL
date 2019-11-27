@@ -13,17 +13,17 @@ import java.util.ArrayList;
  */
 public class Storage {
     
-    private ArrayList<AbstractItem> itemList;
+    private ArrayList<Item> itemList;
     
-    public Storage(ArrayList<AbstractItem> pItemList){
+    public Storage(ArrayList<Item> pItemList){
         this.itemList = pItemList;
     }
 
-    public ArrayList<AbstractItem> getItemList() {
+    public ArrayList<Item> getItemList() {
         return itemList;
     }
 
-    public void setItemList(ArrayList<AbstractItem> itemList) {
+    public void setItemList(ArrayList<Item> itemList) {
         this.itemList = itemList;
     }
    

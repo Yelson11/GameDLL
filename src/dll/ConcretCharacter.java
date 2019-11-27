@@ -7,6 +7,7 @@ package dll;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Map;
 import library.Character;
 import library.*;
 /**
@@ -78,6 +79,8 @@ public class ConcretCharacter extends Character implements IObservable, ICharact
             this.attributeList = new HashMap<>();
             this.usedWeapons = new ArrayList<>();
             this.currentWeapon=null;
+            this.skillList = new ArrayList<>();
+            this.observerHash = new HashMap<>();
         }
         
         public ConcretCharacterBuilder setCharacter(Character pCharacter){
@@ -175,6 +178,37 @@ public class ConcretCharacter extends Character implements IObservable, ICharact
 
     public void setStrategy(IStrategy strategy) {
         this.strategy = strategy;
+    }
+ 
+    @Override
+    public void addAttribute(String pAttribute, int pValue){
+        super.addAttribute(pAttribute, pValue);
+        notifyAllObservers(pAttribute);
+    }
+        
+    @Override
+    public void addAttribute(String pAttribute){
+        super.addAttribute(pAttribute);
+        notifyAllObservers(pAttribute);
+    }
+    
+    
+    public void changeState(){
+        decrementAttribute("energía", 1);
+        decrementAttribute("salud", 1);
+        decrementAttribute("felicidad", 1);
+        decrementAttribute("cansancio", 1);
+        
+        incrementAttribute("orinar", 1);
+        incrementAttribute("defecar", 1);
+        incrementAttribute("hambre", 1);
+        incrementAttribute("sed", 1);
+        
+        for (Map.Entry<String, Integer> entry : getAttributeList().entrySet()) {
+            String key = entry.getKey();
+            Integer value = entry.getValue();
+            System.out.println ("Key: " + key + " Value: " + value);
+        } 
     }
     
 }
