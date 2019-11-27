@@ -9,6 +9,7 @@ package dll;
  *
  * @author Administrator
  */
-public class Food extends AbstractItem {
+public interface IItem {
+   
     
 }

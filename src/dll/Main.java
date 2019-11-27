@@ -5,15 +5,17 @@
  */
 package dll;
 
-import java.util.HashMap;
-
 /**
  *
- * @author Administrator
+ * @author Yelson
  */
-public abstract class AbstractItem implements ICure {
-    
-    private String name;
-    private HashMap<Disease, Integer> list;
+public class Main {
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        // TODO code application logic here
+    }
     
 }
