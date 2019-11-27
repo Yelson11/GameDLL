@@ -5,11 +5,13 @@
  */
 package dll;
 
+import java.util.HashMap;
+
 /**
  *
  * @author Administrator
  */
 public interface IItem {
    
-    
+    public HashMap<String, Integer> getAttributList();
 }
